@@ -3,56 +3,80 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Gallery with Modal and Flip Effect</title>
+    <title>Chique Magazine</title>
     <link rel="stylesheet" href="styles.css">
+    <script src="script.js" defer></script>
 </head>
 <body>
-
-<header>
-    <h1>Gallery</h1>
-    <div class="hamburger">&#9776;</div>
-</header>
-
-<nav>
-    <ul>
-        <li><a href="#home">Home</a></li>
-        <li><a href="#about">About</a></li>
-        <li><a href="#contact">Contact</a></li>
-    </ul>
-</nav>
-
-<main>
-    <section class="gallery">
-        <div class="gallery-grid">
-            <img src="image1.jpg" alt="Image 1 Description">
-            <img src="image2.jpg" alt="Image 2 Description">
-            <img src="image3.jpg" alt="Image 3 Description">
-            <!-- Add more images as needed -->
-        </div>
-    </section>
-</main>
-
-<footer>
-    <p>&copy; 2024 Your Website</p>
-</footer>
-
-<!-- Modal Structure -->
-<div id="imageModal" class="modal">
-    <span class="close">&times;</span>
-    <div class="modal-content">
-        <div class="flip-card">
-            <div class="flip-card-inner">
-                <div class="flip-card-front">
-                    <img class="modal-image" id="modalImage" src="" alt="Modal Image">
+    <header>
+        <h1>Chique</h1>
+        <div class="hamburger">☰</div>
+    </header>
+    <nav id="menu">
+        <ul>
+            <li><a href="#home">Home</a></li>
+            <li><a href="#fashion">Fashion</a></li>
+            <li><a href="#beauty">In the Issue</a></li>
+            <li><a href="#luna">Luna</a></li>
+            <li><a href="#gallery">Gallery</a></li>
+        </ul>
+    </nav>
+    <main>
+        <section id="home" class="article">
+            <h2>Welcome to Chique</h2>
+            <img src="images/chique-image1.jpg" alt="Chique Magazine cover">
+            <p>Discover the latest in fashion, beauty, and lifestyle with Chique.</p>
+        </section>
+        <section id="fashion" class="article">
+            <h2>From the Editor</h2>
+            <img src="images/chique-image2.jpg" alt="Fashion trends">
+            <p>Explore the hottest styles of the season.</p>
+        </section>
+        <section id="beauty" class="article">
+            <h2>In the Issue</h2>
+            <img src="images/chique-image3.jpg" alt="Beauty products">
+            <p>Get expert beauty advice and product recommendations.</p>
+        </section>
+        <section id="luna" class="article">
+            <h2>Luna</h2>
+            <img src="images/chique-image4.jpg" alt="Luna lifestyle scene">
+            <p>Embrace the Chique way of life.</p>
+        </section>
+        <section id="gallery" class="gallery">
+            <h2>More from Chique</h2>
+            <div class="gallery-grid">
+                <div class="gallery-item">
+                    <img src="images/chique-image5.jpg" alt="Chique gallery image 1" data-info="Information about image 1">
                 </div>
-                <div class="flip-card-back" id="modalCaption"></div>
+                <div class="gallery-item">
+                    <img src="images/chique-image6.jpg" alt="Chique gallery image 2" data-info="Information about image 2">
+                </div>
+                <div class="gallery-item">
+                    <img src="images/chique-image7.jpg" alt="Chique gallery image 3" data-info="Information about image 3">
+                </div>
+                <div class="gallery-item">
+                    <img src="images/chique-image8.jpg" alt="Chique gallery image 4" data-info="Information about image 4">
+                </div>
+            </div>
+        </section>
+
+        <!-- Modal for Image Info -->
+        <div id="image-modal" class="modal">
+            <div class="modal-content">
+                <span class="close-button">&times;</span>
+                <div class="modal-body">
+                    <div class="image-container">
+                        <button class="prev-button">&#10094;</button>
+                        <img id="modal-image" src="" alt="">
+                        <button class="next-button">&#10095;</button>
+                    </div>
+                    <p id="image-info"></p>
+                </div>
             </div>
         </div>
-        <button class="prev">&lt;</button>
-        <button class="next">&gt;</button>
-    </div>
-</div>
-
-<script src="script.js"></script>
+    </main>
+    <footer>
+        <p>&copy; 2024 Chique Magazine. All rights reserved.</p>
+    </footer>
 </body>
 </html>
