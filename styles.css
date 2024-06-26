@@ -29,6 +29,7 @@ h1 {
     font-size: 1.5rem;
     cursor: pointer;
     transition: transform 0.3s ease;
+    margin-right: 1rem; /* Adjust this value as needed to position the hamburger menu */
 }
 
 .hamburger:hover {
