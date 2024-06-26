@@ -1,51 +1,15 @@
 document.addEventListener('DOMContentLoaded', function() {
-    const images = document.querySelectorAll('.gallery-grid img');
-    const modal = document.getElementById('imageModal');
-    const modalImg = document.getElementById('modalImage');
-    const modalCaption = document.getElementById('modalCaption');
-    const closeBtn = document.querySelector('.close');
-    const prevBtn = document.querySelector('.prev');
-    const nextBtn = document.querySelector('.next');
-    let currentIndex;
+    const hamburger = document.querySelector('.hamburger');
+    const menu = document.getElementById('menu');
+    const modal = document.getElementById('image-modal');
+    const modalImage = document.getElementById('modal-image');
+    const imageInfo = document.getElementById('image-info');
+    const closeButton = document.querySelector('.close-button');
+    const prevButton = document.querySelector('.prev-button');
+    const nextButton = document.querySelector('.next-button');
+    const galleryItems = document.querySelectorAll('.gallery-item img');
+    let currentIndex = 0;
 
-    images.forEach((img, index) => {
-        img.addEventListener('click', function() {
-            modal.style.display = "block";
-            modalImg.src = this.src;
-            modalCaption.textContent = this.alt;
-            currentIndex = index;
-            flipCard();
-        });
-    });
-
-    closeBtn.onclick = function() {
-        modal.style.display = "none";
-    }
-
-    prevBtn.onclick = function() {
-        currentIndex = (currentIndex > 0) ? currentIndex - 1 : images.length - 1;
-        updateModalImage();
-    }
-
-    nextBtn.onclick = function() {
-        currentIndex = (currentIndex < images.length - 1) ? currentIndex + 1 : 0;
-        updateModalImage();
-    }
-
-    function updateModalImage() {
-        modalImg.src = images[currentIndex].src;
-        modalCaption.textContent = images[currentIndex].alt;
-        flipCard();
-    }
-
-    function flipCard() {
-        const flipCardInner = document.querySelector('.flip-card-inner');
-        flipCardInner.style.transform = 'rotateY(180deg)';
-        setTimeout(() => {
-            flipCardInner.style.transform = 'rotateY(0deg)';
-        }, 800);
-    }
-
-    window.onclick = function(event) {
-        if (event.target == modal) {
-            modal.style
+    function toggleMenu() {
+        menu.classList.toggle('show');
+        hamburger.textContent = menu.class
