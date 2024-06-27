@@ -45,7 +45,7 @@ nav {
     background-color: #000;
     width: 100%;
     box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-    z-index: 1001;
+    z-index: 1001; /* Ensure menu is above other content */
 }
 
 nav.show {
@@ -96,6 +96,37 @@ main {
     margin-bottom: 1rem;
 }
 
+.gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1rem;
+}
+
+.gallery-grid img {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+    transition: transform 0.3s ease;
+}
+
+.gallery-grid img:hover {
+    transform: scale(1.05);
+}
+
+.gallery-item {
+    position: relative;
+    perspective: 1000px;
+}
+
+.gallery-item img {
+    transition: transform 0.6s;
+    transform-style: preserve-3d;
+}
+
+.gallery-item img.flipped {
+    transform: rotateY(180deg);
+}
+
 footer {
     background-color: #000;
     color: white;
@@ -134,9 +165,9 @@ footer {
 
 .close-button {
     position: absolute;
-    top: 5px;
-    right: 10px;
-    color: #F11E84;
+    top: 5px; /* Adjusted position */
+    right: 10px; /* Adjusted position */
+    color: #000;
     font-size: 35px;
     font-weight: bold;
 }
@@ -146,6 +177,12 @@ footer {
     cursor: pointer;
 }
 
+.image-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
 .prev-button, .next-button {
     background-color: rgba(0, 0, 0, 0.5);
     border: none;
@@ -153,24 +190,14 @@ footer {
     font-size: 2rem;
     cursor: pointer;
     padding: 10px;
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
 }
 
 .prev-button {
-    left: 10px;
+    margin-right: 30px; /* Adjusted position */
 }
 
 .next-button {
-    right: 10px;
-}
-
-@media (max-width: 768px) {
-    .prev-button, .next-button {
-        margin-right: 10px;
-        margin-left: 10px;
-    }
+    margin-left: 20px;
 }
 
 #modal-image {
@@ -195,4 +222,10 @@ footer {
 
 #back-to-top:hover {
     background-color: #333;
+}
+
+@media (max-width: 768px) {
+    .gallery-grid {
+        grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    }
 }
